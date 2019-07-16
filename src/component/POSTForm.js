@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
+import Button from 'react-bootstrap/Button';
 
 export class POSTForm extends Component {
     constructor(props) {
@@ -8,9 +12,23 @@ export class POSTForm extends Component {
         this.state = {
              userId:'',
              title: '',
-             body:''
+             body:'',
+             startDate: new Date()
         }
+       // this.handleDateChange = this.handleDateChange.bind(this);
     }
+
+    
+    handleDateChange = date => {
+        this.setState({
+            startDate: date
+          });
+    }
+    // handleDateChange(date) {
+    //     this.setState({
+    //       startDate: date
+    //     });
+    //   }
 
     changeHandler = e => {
 		this.setState({ [e.target.name]: e.target.value })
@@ -58,6 +76,13 @@ export class POSTForm extends Component {
                                 value={body}
                                 onChange={this.changeHandler}
                             />
+                        </div>
+                        <div>
+
+                        <DatePicker
+        selected={this.state.startDate}
+        onChange={this.changeHandler}
+      />
                         </div>
                         <button type="submit">Submit</button>
                     </form>
