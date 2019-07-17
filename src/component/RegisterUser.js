@@ -84,7 +84,7 @@ class RegisterUser extends React.Component {
     render() {
         return (
             <div>
-                <h2>Add Product</h2>
+                <h2>User registration</h2>
                 <Row>
                     <Col sm={6}>
                         <Form onSubmit={this.handleSubmit}>
