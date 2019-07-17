@@ -4,15 +4,17 @@ import './App.css';
 import Test from './component/T';
 import NavBar from './component/NAVBar';
 import MyEntryForm from './component/MyEntryForm';
+import RegisterUser from './component/RegisterUser';
 
 function App() {
   return (
     <div className="App">
       {/* <header className="App-header"> */}
-        {/* <NavBar /> */}
+        <NavBar />
         {/* <Test /> */}
       {/* </header> */}
-      <MyEntryForm />
+      {/* <MyEntryForm /> */}
+      <RegisterUser />
     </div>
   );
 }

@@ -14,7 +14,9 @@ export class Test extends Component {
               {/* <POSTForm /> */}
               {/* <MyForm />  */}
               {/* <NAVBar /> */}
-              <MyEntryForm />
+              {/* <MyEntryForm /> */}
+             
+              
             </div>
         )
     }
