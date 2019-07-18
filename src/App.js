@@ -5,6 +5,7 @@ import Test from './component/T';
 import NavBar from './component/NAVBar';
 import MyEntryForm from './component/MyEntryForm';
 import RegisterUser from './component/RegisterUser';
+import ReactSelectAutocomplete from './component/ReactSelectAutocomplete';
 
 function App() {
   return (
@@ -14,7 +15,10 @@ function App() {
         {/* <Test /> */}
       {/* </header> */}
       {/* <MyEntryForm /> */}
+
       <RegisterUser />
+
+      {/* <ReactSelectAutocomplete /> */}
     </div>
   );
 }

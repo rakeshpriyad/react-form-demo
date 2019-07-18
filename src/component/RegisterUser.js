@@ -1,7 +1,27 @@
 
 import React from 'react';
 import { Row, Form, Col, Button } from 'react-bootstrap';
+import Select from 'react-select';
 
+
+const states = [
+    {
+        label: 'Bihar',
+        value: 'BH'
+    },
+    {
+        label: 'Uttar Pradesh',
+        value: 'UP'
+    },
+    {
+        label: 'Madhya Pradesh',
+        value: 'MP'
+    },
+    {
+        label: 'West Bengal',
+        value: 'WB'
+    }
+];
 class RegisterUser extends React.Component {
 
     constructor(props) {
@@ -13,7 +33,6 @@ class RegisterUser extends React.Component {
             addr: '',
             city: '',
             addrState: '',
-            addrStates: [],
             country: '',
 
         }
@@ -25,39 +44,25 @@ class RegisterUser extends React.Component {
 
     }
 
-    states = [
-        {
-            name: 'Bihar',
-            id: 'BH'
-        },
-    
-        {
-            name: 'Uttar Pradesh',
-            id: 'UP'
-        },
-        {
-            name: 'Madhya Pradesh',
-            id: 'MP'
-        },
-        {
-            name: 'Best Bengal',
-            id: 'WB'
-        }
-    ];
+   
 
-    getStates = () =>
+    /* getStates = () =>
     new Promise(resolve =>
         setTimeout(() => {
-            resolve(this.states);
+            resolve(states);
         }, 1000)
-    );
+    ); */
 
 
-    componentDidMount() {
+    /* componentDidMount() {
         this.getStates().then(data =>
-            this.setState({ addrStates: data, addrState: data[0].name }));
-    }
+            this.setState({ addrStates: data, addrState: this.addrState}));
+    } */
 
+    handleSelectChange = addrState => {
+        this.setState({ addrState });
+        console.log(`Option selected:`, addrState);
+      };
     handleChange(event) {
         const name = event.target.name;
         const value = event.target.value;
@@ -68,10 +73,10 @@ class RegisterUser extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        alert(` ${this.state.userName} ${this.state.age} ${this.state.dob} ${this.state.addr} ${this.state.city} ${this.state.addrState} ${this.state.country}`);
+        alert(` ${this.state.userName} ${this.state.age} ${this.state.dob} ${this.state.addr} ${this.state.city} ${this.state.addrState.value} ${this.state.country}`);
     }
 
-    createOptions = () =>
+   /*  createOptions = () =>
         this.state.addrStates.length
             ? this.state.addrStates.map(data => (
                 <option key={data.id} value={data.id}>
@@ -79,9 +84,10 @@ class RegisterUser extends React.Component {
                 </option>
             ))
             : "";
-
-
+ */
+    //states = () => this.states;
     render() {
+       // const { addrState } = this.state;
         return (
             <div>
                 <h2>User registration</h2>
@@ -134,14 +140,20 @@ class RegisterUser extends React.Component {
                                     placeholder="City" />
                             </Form.Group>
                            
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Label>Example select</Form.Label>
+                            {/* <Form.Group controlId="exampleForm.addrState">
+                                <Form.Label>State</Form.Label>
                                 {
-                                    <Form.Control as="select">
+                                    <Form.Control as="select" dataLiveSearch="true">
                                         {this.createOptions()}
                                     </Form.Control>
                                 }
-                            </Form.Group>
+                            </Form.Group> */}
+ <Select
+        value={this.state.addrState}
+        onChange={this.handleSelectChange}
+        options={states}
+      />
+                            
                             <Form.Group controlId="country">
                                 <Form.Label>Country</Form.Label>
                                 <Form.Control
