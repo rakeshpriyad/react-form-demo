@@ -76,7 +76,7 @@ class RegisterUser extends React.Component {
         alert(` ${this.state.userName} ${this.state.age} ${this.state.dob} ${this.state.addr} ${this.state.city} ${this.state.addrState.value} ${this.state.country}`);
     }
 
-   /*  createOptions = () =>
+    createOptions = () =>
         this.state.addrStates.length
             ? this.state.addrStates.map(data => (
                 <option key={data.id} value={data.id}>
@@ -84,8 +84,8 @@ class RegisterUser extends React.Component {
                 </option>
             ))
             : "";
- */
-    //states = () => this.states;
+
+    states = () => this.states;
     render() {
        // const { addrState } = this.state;
         return (
