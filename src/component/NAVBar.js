@@ -5,6 +5,8 @@ import About from './About'
 import Contacts from './Contacts'
 import RegisterUser from './RegisterUser'
 import { Navbar, Nav, NavDropdown, FormControl, Form, Button } from 'react-bootstrap'
+import ProductList from './ProductList';
+import EditProduct from './EditProduct';
 
 function NAVBar() {
     return (
@@ -15,6 +17,7 @@ function NAVBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link as={NavLink} to='/home' exact>Home</Nav.Link>
+                        <Nav.Link as={NavLink} to='/products' >Products</Nav.Link>
                         <Nav.Link as={NavLink} to='/register' exact>Register</Nav.Link>
                         <Nav.Link as={NavLink} to='/about'>About</Nav.Link>
                         <Nav.Link as={NavLink} to='/contacts'>Contacts</Nav.Link>
@@ -37,6 +40,8 @@ function NAVBar() {
                 <Route path="/about" component={About} />
                 <Route path="/contacts" component={Contacts} />
                 <Route path="/register" component={RegisterUser} />
+                <Route path="/products" component={ProductList} />
+                <Route path="/products/:id" component={EditProduct} />
             </Route>
         </Router>
     )

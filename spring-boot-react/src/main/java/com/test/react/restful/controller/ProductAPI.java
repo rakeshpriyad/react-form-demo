@@ -47,7 +47,7 @@ public class ProductAPI {
 	}
 
 	@CrossOrigin
-	@GetMapping("/{id}")
+	@GetMapping("/products/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
 		Optional<Product> stock = productService.findById(id);
 		if (!stock.isPresent()) {
@@ -58,7 +58,8 @@ public class ProductAPI {
 		return ResponseEntity.ok(stock.get());
 	}
 
-	@PutMapping("/{id}")
+	@CrossOrigin
+	@PutMapping("/products/{id}")
 	public ResponseEntity<Product> update(@PathVariable Long id, @Valid @RequestBody Product product) {
 		if (!productService.findById(id).isPresent()) {
 			log.error("Id " + id + " is not existed");
@@ -68,7 +69,8 @@ public class ProductAPI {
 		return ResponseEntity.ok(productService.save(product));
 	}
 
-	@DeleteMapping("/{id}")
+	@CrossOrigin
+	@DeleteMapping("/products/{id}")
 	public ResponseEntity delete(@PathVariable Long id) {
 		if (!productService.findById(id).isPresent()) {
 			log.error("Id " + id + " is not existed");

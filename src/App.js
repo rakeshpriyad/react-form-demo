@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import NavBar from './component/NAVBar';
 import Product from './component/Products';
+import EditProduct from './component/EditProduct';
+import ProductList from './component/ProductList';
 /* import MyEntryForm from './component/MyEntryForm';
 import RegisterUser from './component/RegisterUser';
 import ReactSelectAutocomplete from './component/ReactSelectAutocomplete';
@@ -19,7 +21,9 @@ function App() {
       {/* <RegisterUser /> */}
 
       {/* <ReactSelectAutocomplete /> */}
-      <Product />
+      {/* <Product /> */}
+      {/* <EditProduct /> */}
+      {/* <ProductList /> */}
     </div>
   );
 }
